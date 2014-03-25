@@ -1,0 +1,17 @@
+<html>
+	<div style="padding:10px;">
+		{% if user.is_authenticated %}
+			Welcome back {{user}}.
+		{% else %}
+			You are currently not logged in.
+		{% endif %}
+		<h1>Houses</h1>
+		<table>
+		<th>Owner</th>
+		<th>Address</th>
+		{% for house in houses %}
+			<tr style="background-color:{%cycle 'white' 'grey'%};"><td>{{house.owner.name}}</td><td>{{house.address}}</td></tr>
+		{% endfor %}
+		</table>
+	</div>
+</html>
