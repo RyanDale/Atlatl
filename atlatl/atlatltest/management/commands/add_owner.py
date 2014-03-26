@@ -15,4 +15,4 @@ class Command(BaseCommand):
 		if options['name']:
 			owner = Owner(name=options['name'])
 			owner.save()
-			self.stdout.write("Added owner: name=[%s]"%owner.name)
+			self.stdout.write("Added owner: id=[%d] name=[%s]"%(owner.id,owner.name))

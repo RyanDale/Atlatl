@@ -15,7 +15,7 @@ class Command(BaseCommand):
 		if options['address']:
 			if House.objects.filter(address__contains=options['address']).exists():
 				house=House.objects.filter(address__contains=options['address'])[0]
-				self.stdout.write("Deleted house: address=[%s] owner=[%s]"%(house.address,house.owner.name))
+				self.stdout.write("Deleted house: id=[%d] address=[%s] owner=[%s]"%(house.id, house.address,house.owner.name))
 				if House.objects.filter(owner=house.owner).count()==1:
 					house.owner.delete()
 				house.delete()

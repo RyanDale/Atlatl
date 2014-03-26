@@ -23,4 +23,4 @@ class Command(BaseCommand):
 		if options['address']:
 			houses=houses.filter(address__contains=options['address'])
 		for house in houses:
-			self.stdout.write("address=[%s] owner=[%s]"%(house.address,house.owner.name))
+			self.stdout.write("id=[%d] address=[%s] owner=[%s]"%(house.id, house.address,house.owner.name))

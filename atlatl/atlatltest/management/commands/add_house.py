@@ -27,4 +27,4 @@ class Command(BaseCommand):
 				self.stdout.write("Added owner: name=[%s]"%owner.name)
 			house = House(address=options['address'],owner=owner)
 			house.save()
-			self.stdout.write("Added house: address=[%s] owner=[%s]"%(house.address,house.owner.name))
+			self.stdout.write("Added house: id=[%d] address=[%s] owner=[%s]"%(house.id,house.address,house.owner.name))
