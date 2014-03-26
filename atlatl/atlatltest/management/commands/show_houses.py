@@ -10,10 +10,17 @@ class Command(BaseCommand):
 		            dest='owner',
 		            default=False,
 		            help=''),
+		make_option('--addr-contains',
+		            action='store',
+		            dest='address',
+		            default=False,
+		            help=''),
 		)
 	def handle(self, *args, **options):
 		houses=House.objects.all()
 		if options['owner']:
-			houses=House.objects.filter(owner__name=options['owner'])
+			houses=houses.filter(owner__name=options['owner'])
+		if options['address']:
+			houses=houses.filter(address__contains=options['address'])
 		for house in houses:
 			self.stdout.write("address=[%s] owner=[%s]"%(house.address,house.owner.name))
